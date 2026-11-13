@@ -2,8 +2,7 @@ title: PM
 tagline: while black
 description: "PM While Black: making product management careers more accessible to the Black community."
 url: https://pmwhileblack.com
-# Empty once the custom domain is live. Set to /pmwhileblack only for the github.io preview.
-baseurl: /pmwhileblack
+baseurl: ""
 timezone: UTC
 
 # Number of posts shown on the home page before "View all posts"
