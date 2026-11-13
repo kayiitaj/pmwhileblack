@@ -1,0 +1,18 @@
+---
+layout: default
+title: Home
+---
+<header class="block block-title">
+  <h1 class="entry-title">Home</h1>
+</header>
+<div class="block home-list">
+  {% for post in site.posts limit: site.home_post_count %}
+  {% assign last = post.summary | slice: -1 %}
+  <article class="feature">
+    <h2 class="feature-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p class="feature-meta">{{ post.date | date: "%B %-d, %Y" }} by {{ post.author }}</p>
+    <p class="feature-excerpt">{{ post.summary | default: post.excerpt | strip_html }}{% if last == "…" %} <a href="{{ post.url | relative_url }}">Read more</a>{% endif %}</p>
+  </article>
+  {% endfor %}
+  <p class="view-all"><a href="{{ '/blog-feed/' | relative_url }}">View all posts</a></p>
+</div>

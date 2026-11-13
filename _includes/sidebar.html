@@ -1,0 +1,19 @@
+<div class="sidebar-inner">
+  <div class="brand">
+    <p class="site-title"><a href="{{ '/' | relative_url }}" rel="home">{{ site.title }}</a></p>
+    <p class="site-tagline">{{ site.tagline }}</p>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <ul>
+      {% for item in site.data.nav %}<li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <div class="recent">
+    <h2>recent posts</h2>
+    <ul>
+      {% for post in site.posts limit: 5 %}<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

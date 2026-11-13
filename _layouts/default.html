@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.url == "/" %}{{ site.title }} – {{ site.tagline }}{% else %}{{ page.title }} – {{ site.title }}{% endif %}</title>
+<meta name="description" content="{{ page.summary | default: site.description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="PM While Black">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.summary | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{% feed_meta %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <aside class="sidebar">
+    {% include sidebar.html %}
+  </aside>
+  <div class="col">
+    <main class="main" id="main">
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      <ul>
+        {% for item in site.data.footer %}<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

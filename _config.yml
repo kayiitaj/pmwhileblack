@@ -1,0 +1,30 @@
+title: PM
+tagline: while black
+description: "PM While Black: making product management careers more accessible to the Black community."
+url: https://pmwhileblack.com
+# Empty once the custom domain is live. Set to /pmwhileblack only for the github.io preview.
+baseurl: /pmwhileblack
+timezone: UTC
+
+# Number of posts shown on the home page before "View all posts"
+home_post_count: 2
+
+# New posts get the same URL shape WordPress used, plus these defaults
+permalink: /:year/:month/:day/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: "Kayiita Johansson"
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

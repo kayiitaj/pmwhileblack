@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="entry">
+  <header class="block block-title">
+    <h1 class="entry-title">{{ page.title }}</h1>
+    <p class="entry-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+  </header>
+  <div class="block entry-content">
+    {{ content }}
+  </div>
+  {% if page.cats.size > 0 %}
+  <p class="block entry-terms">Posted in {% for c in page.cats %}<a href="{{ '/category/' | append: c | append: '/' | relative_url }}">{{ site.data.categories[c] }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+  {% endif %}
+  {% include comments.html %}
+  <nav class="block post-nav" aria-label="Posts">
+    {% if page.previous %}<p><span aria-hidden="true">←</span> <a href="{{ page.previous.url | relative_url }}" rel="prev">{{ page.previous.title }}</a></p>{% endif %}
+    {% if page.next %}<p><a href="{{ page.next.url | relative_url }}" rel="next">{{ page.next.title }}</a> <span aria-hidden="true">→</span></p>{% endif %}
+  </nav>
+</article>

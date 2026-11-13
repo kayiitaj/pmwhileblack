@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% if page.cat %}{% assign posts = site.posts | where_exp: "p", "p.cats contains page.cat" %}{% else %}{% assign posts = site.posts %}{% endif %}
+<header class="block block-head">
+  <h1 class="entry-title">{{ page.title }}</h1>
+</header>
+{% for post in posts %}
+<article class="block list-item">
+  <h2 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <p class="entry-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+  <p class="list-excerpt">{{ post.summary | default: post.excerpt | strip_html }}</p>
+</article>
+{% endfor %}
+{% if posts.size == 0 %}
+<div class="block"><p>No posts here yet.</p></div>
+{% endif %}

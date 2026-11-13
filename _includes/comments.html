@@ -1,0 +1,15 @@
+{% assign thread = site.data.comments[page.wp_key] %}
+{% if thread %}
+<section class="block comments" id="comments">
+  <h2>{% if thread.size == 1 %}One response{% else %}{{ thread.size }} responses{% endif %} to “{{ page.title }}”</h2>
+  <ol>
+    {% for c in thread %}
+    <li class="comment depth-{{ c.depth }}">
+      <p class="comment-meta"><strong>{{ c.author }}</strong> <span>{{ c.date }}</span></p>
+      <div class="comment-body">{{ c.html }}</div>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="comments-closed">Comments are closed.</p>
+</section>
+{% endif %}
